@@ -1,0 +1,23 @@
+<div class="datepicker-input">
+    <input type="text" ng-model="ngModel" ng-readonly="true" ng-click="showPicker()" ng-focus="showPicker()"  />
+</div>
+<div class="datepicker" ng-show="selecting">
+    <div class="header">
+        <i class="previousMonth fa fa-chevron-left left" ng-click="previousMonth()"></i>
+        <button type="button" class="month">{{ month() }}</button>
+        <button type="button" class="year">{{ year() }}</button>
+        <i class="nextMonth right fa fa-chevron-right" ng-click="nextMonth()"></i>
+    </div>
+    <ul class="days">
+        <li class="weekend">S</li>
+        <li>M</li>
+        <li>T</li>
+        <li>W</li>
+        <li>T</li>
+        <li>F</li>
+        <li class="weekend">S</li>
+    </ul>
+    <ul class="dates">
+        <li ng-repeat="date in dates()" ng-click="selectDate(date.moment)" ng-class="dateClass(date.moment)">{{ date.date }}</li>
+    </ul>
+</div>

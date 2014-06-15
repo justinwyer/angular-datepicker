@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/momentjs/moment.js"></script>
+    <script src="datepicker.js"></script>
+    <link href="bower_components/fontawesome/css/font-awesome.css" rel="stylesheet" media="screen"/>
+    <link href="datepicker.css" rel="stylesheet" media="screen"/>
+    <script>
+        angular.module('example', ['datepicker']);
+    </script>
+    <style>
+        body {
+            font-color: black;
+            font-size: 14px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body ng-app="example">
+<div>
+    <div>Date picker binding a formatted date</div>
+    <date-picker ng-model="chosenDate" date-format="DD MMMM YYYY"></date-picker>
+    <div>Chosen date is {{ chosenDate }}</div>
+</div>
+</body>
+</html>
