@@ -1,0 +1,124 @@
+.datepicker {
+    position: absolute;
+    width: 21em;
+    height: 21em;
+    line-height: 3em;
+    background-color: #fff;
+    color: #1e1e1e;
+    margin-top: 0.5em;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+}
+.datepicker .header {
+    background-color: #f3f3f3;
+    height: 3em;
+    text-align: center;
+}
+.datepicker .header i {
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+.datepicker .header i:hover {
+    cursor: pointer;
+}
+.datepicker .header i.right {
+    right: 0;
+}
+.datepicker .header button {
+    background-color: #f3f3f3;
+    color: #333;
+    font-weight: bold;
+    padding: 0em;
+    width: 4em;
+    height: 3em;
+    border: none;
+}
+.datepicker .header button.month {
+    font-size: 14px;
+    width: 6em;
+    border-right: none;
+}
+.datepicker .header button.year {
+    font-size: 14px;
+    width: 3em;
+    border-left: none;
+}
+.datepicker .days {
+    margin: 0;
+    padding-left: 0;
+    width: 21em;
+}
+.datepicker .days li {
+    list-style: none;
+    font-weight: bold;
+    float: left;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+}
+.datepicker .dates {
+    margin: 0;
+    padding-left: 0;
+    width: 21em;
+}
+.datepicker .dates li {
+    list-style: none;
+    float: left;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    cursor: pointer;
+}
+.datepicker .dates li:hover {
+    background-color: #f3f3f3;
+}
+.datepicker .dates li.different-month {
+    color: #bbb;
+}
+.datepicker .dates li.invalid {
+    color: #D2D2D2;
+    cursor: not-allowed;
+}
+.datepicker .dates li.invalid:hover {
+    background-color: white;
+}
+.datepicker .dates li.selected {
+    background-color: #9FD6FF;
+    color: white;
+}
+.datepicker .fa {
+    font-size: 0.9em;
+    padding: 0.7em;
+    position: absolute;
+    color: #424242;
+}
+.datepicker .fa.left {
+    left: 0;
+}
+
+.datepicker-input {
+    position: relative;
+    width: 14em;
+    padding-bottom: 0;
+}
+.datepicker-input input[type=text] {
+    transition: background 0.3s ease-in-out;
+    font-size: 1em;
+    background: none;
+    background-color: #FDFDFD;
+    border: 1px solid #D2D2D2;
+    padding: 0.7em;
+    margin-bottom: 0em;
+    outline: none;
+    width: 100%;
+}
+.datepicker-input:after {
+    font-family: "fontawesome";
+    content: "\f073";
+    font-size: 1.5em;
+    position: absolute;
+    top: 0.5em;
+    right: -0.5em;
+    pointer-events: none;
+}
