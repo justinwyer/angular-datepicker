@@ -1,11 +1,11 @@
 {
     "name": "ng-datepicker",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "authors": [
         "Justin Wyer <justin@lifeasageek.com>"
     ],
     "description": "Date picker for angular",
-    "main": "./angular-datepicker.js",
+    "main": "./datepicker.js",
     "keywords": [
         "angular",
         "datepicker"
