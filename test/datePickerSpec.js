@@ -15,20 +15,21 @@ describe('Datepicker', function () {
 
     var compileTemplate = function (html, compile, scope) {
         var element = compile(angular.element(html))(scope);
-        scope.$digest();
+        scope.$apply();
         return element;
     };
 
     beforeEach(module('datepicker'));
 
     describe('directive', function () {
-        var realMoment, rootScope, compile, templateCache;
-        beforeEach(inject(function ($rootScope, $compile, $templateCache) {
+        var realMoment, rootScope, compile, templateCache, componentController;
+        beforeEach(inject(function ($rootScope, $compile, $templateCache, $componentController) {
             realMoment = moment;
             compile = $compile;
             rootScope = $rootScope;
             compile = $compile;
             templateCache = $templateCache;
+            componentController = $componentController;
 
             moment = function () {
                 return realMoment().year(2013).month(1);
@@ -39,8 +40,7 @@ describe('Datepicker', function () {
             templateCache.put('datepicker.html', loadTemplate('base/datepicker.html'));
             this.outerScope = rootScope.$new();
             this.element = compileTemplate('<date-picker ng-model="chosenDate" date-format="YYYY-MM-DDTHH:mm:ss.SSSZZ"></date-picker>', compile, this.outerScope);
-
-            this.scope = this.element.isolateScope();
+            this.scope = this.element.controller('datePicker');
         }));
 
         afterEach(function () {
@@ -52,7 +52,7 @@ describe('Datepicker', function () {
                 templateCache.put('datepicker.html', loadTemplate('base/datepicker.html'));
                 this.outerScope = rootScope.$new();
                 this.element = compileTemplate('<date-picker ng-model="chosenDate" date-format="YYYY-MM-DDTHH:mm:ss.SSSZZ" earliest-date="2013-01-01" latest-date="2013-03-31"></date-picker>', compile, this.outerScope);
-                this.scope = this.element.isolateScope();
+                this.scope = this.element.controller('datePicker');
             });
 
             it('may have a start date', function () {
@@ -264,7 +264,6 @@ describe('Datepicker', function () {
             });
 
             it('should highlight the selected date', function () {
-                this.scope.dateFormat = 'DD MMMM YYYY';
                 this.element.find('.dates li:nth(10)').click();
                 expect(this.element.find('.dates li:nth(10)').is('.selected')).toBeTruthy();
             });
@@ -298,7 +297,7 @@ describe('Datepicker', function () {
             it('should not mark invalid days that are not in the month selected with the different-month class', function () {
                 this.scope.earliestDate = realMoment('2013-01-31');
                 this.scope.latestDate = realMoment('2013-03-01');
-                this.scope.$digest();
+                this.outerScope.$apply();
 
                 expect(this.element.find('.dates li:nth(0)').is('.different-month')).toBeFalsy();
                 expect(this.element.find('.dates li:nth(34)').is('.different-month')).toBeFalsy();

@@ -1,12 +1,12 @@
 <div class="datepicker-input">
-    <input type="text" ng-model="ngModel" ng-readonly="true" ng-click="showPicker()" ng-focus="showPicker()"  />
+    <input type="text" ng-model="$ctrl.ngModel" ng-readonly="true" ng-click="$ctrl.showPicker()" ng-focus="$ctrl.showPicker()"  />
 </div>
-<div class="datepicker" ng-show="selecting">
+<div class="datepicker" ng-show="$ctrl.selecting">
     <div class="header">
-        <i class="previousMonth fa fa-chevron-left left" ng-click="previousMonth()"></i>
-        <button type="button" class="month">{{ month() }}</button>
-        <button type="button" class="year">{{ year() }}</button>
-        <i class="nextMonth right fa fa-chevron-right" ng-click="nextMonth()"></i>
+        <i class="previousMonth fa fa-chevron-left left" ng-click="$ctrl.previousMonth()"></i>
+        <button type="button" class="month">{{ $ctrl.month() }}</button>
+        <button type="button" class="year">{{ $ctrl.year() }}</button>
+        <i class="nextMonth right fa fa-chevron-right" ng-click="$ctrl.nextMonth()"></i>
     </div>
     <ul class="days">
         <li class="weekend">S</li>
@@ -18,6 +18,6 @@
         <li class="weekend">S</li>
     </ul>
     <ul class="dates">
-        <li ng-repeat="date in dates()" ng-click="selectDate(date.moment)" ng-class="dateClass(date.moment)">{{ date.date }}</li>
+        <li ng-repeat="date in $ctrl.dates()" ng-click="$ctrl.selectDate(date.moment)" ng-class="$ctrl.dateClass(date.moment)">{{ date.date }}</li>
     </ul>
 </div>
