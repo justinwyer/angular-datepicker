@@ -2,7 +2,6 @@
     app.component('datePicker', {
             templateUrl: 'datepicker.html',
             controller: DatePickerController,
-            restrict: "E",
             bindings: {
                 ngModel: '=',
                 earliestDate: '@',

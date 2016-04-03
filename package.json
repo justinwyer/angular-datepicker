@@ -1,6 +1,6 @@
 {
-  "name": "datepicker",
-  "version": "0.2.0",
+  "name": "ng-datepicker-component",
+  "version": "0.3.0",
   "description": "Angular date picker",
   "main": "datepicker.js",
   "directories": {
